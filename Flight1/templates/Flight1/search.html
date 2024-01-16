@@ -103,13 +103,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="trip-filter">
-                    <button class="btn spl-btn2" onclick="show_filter()">
-                        <svg width="1.3em" height="1.3em" viewBox="0 0 16 16" class="bi bi-funnel" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2h-11z"/>
-                        </svg>
-                    </button>
-                </div>
+              
             </div>
         </div>
         {% if trip_type == '2' and flights %}
@@ -249,24 +243,29 @@
                 <div class="container">
                     <div class="row">
                         {% if flights2 %}
-                            <div class="col-lg-9 actual-result-div">
-                                <div class="sort-div" style="display:none">
-                                    <div class="sort-label">Sort By:</div>
-                                    <div style="display: flex;">
-                                        <div class="sort-depart">
-                                            Depart
-                                            <span>--</span>
-                                        </div>
-                                        <div class="sort-arrive">
-                                            Arrive
-                                            <span>--</span>
-                                        </div>
-                                    </div>
-                                    <div class="sort-price">
-                                        Price
-                                        <span></span>
-                                    </div>
+                        <div class="actual-result-div">
+
+                           
+                            <div class="sort-div">
+                            <div class="flight-company">
+                                <div class="sort-label">Sort By:</div>
+                            </div>
+                            <div class="flight-time">
+                                <div class="flight-origin-time sort-depart">
+                                    Depart
+                                    <span></span>
                                 </div>
+                                <div class="flight-stops"></div>
+                                <div class="flight-destination-time sort-arrive">
+                                    Arrive
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="flight-details">
+                                Price
+                                <span></span>
+                            </div>
+                        </div>
 
                                 <div id="flights_div2">
                                     {% for flight2 in flights2 %}
@@ -398,9 +397,9 @@
                                 <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                             </svg>
                             <span>{{origin.code|upper}}</span>
-                            &nbsp;&nbsp;&nbsp;&nbsp; vnd
+                            
                             {% if flights2 %}
-                                &nbsp;&nbsp;&nbsp;&nbsp; vnd
+                                
                                 <span id="select-f2-fare">
                                     {% if seat == "Economy" %}
                                         {{flights2.all.0.economy_fare}}
@@ -409,7 +408,7 @@
                                     {% else %}
                                         {{flights2.all.0.first_fare}}
                                     {% endif %}
-                                </span><!---->
+                                </span> vnd
                             {% endif %}
                         </div>
                         <div class="white-2">
