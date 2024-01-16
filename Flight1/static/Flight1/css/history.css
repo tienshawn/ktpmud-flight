@@ -1,0 +1,125 @@
+*{
+    font-family: "Segoe UI", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+body{
+    word-wrap: break-word;
+}
+.container-ticket{
+    cursor: pointer;
+    border-radius: 2px;
+}
+.each-flight{
+    width: 80%;
+    margin: 5px auto 8px auto;
+    transition-duration: .4s;
+    padding: 10px 15px;
+    background: #fafafa;
+    border: 1px solid #e6e6e6;
+    border-radius: 5px;
+}
+.each-flight:hover{
+    box-shadow: 0 0 5px rgba(0, 0, 0, .1);
+    border-color: rgb(246,247,247);
+    background-color: rgb(246,247,247);
+}
+
+.each-flight > div{
+    display: flex;
+    overflow: auto;
+}
+.each-flight > div > div{
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 100%;
+}
+
+.popup{
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999999;
+}
+.popup-actions{
+    padding: 0px 5%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.popup .btn{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.small-popup{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    align-items: center;
+    text-align: center;
+    padding: 25px 20px;
+    overflow: auto;
+    border-radius: 10px;
+}
+
+
+@media (max-width: 376px){
+    .popup-actions{
+        padding: 0;
+    }
+    .small-popup{
+        width: 80%;
+    }
+    .each-flight{
+        width: 100%;
+    }
+    .container{
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .each-flight{
+        display: block;
+    }
+    .each-flight > div{
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+    .each-flight > div > div{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .places{
+        display: flex;
+        justify-content: center;
+    }
+    .status-div, .booking-date-div{
+        display: flex;
+        justify-content: center;
+    }
+    .middle-div{
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .last-div{
+        margin-top: 5px;
+    }
+}
+
+.ticket-action-div{
+    display: flex;
+    justify-content: space-evenly;
+}
+.status{
+    color: white;
+    padding: 5px;
+    border: 1px solid ;
+    border-radius: 10px;
+}
+p{
+    font-size: 40px;
+}

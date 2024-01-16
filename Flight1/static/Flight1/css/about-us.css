@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+img{
+    width: 100%;
+}
+.container img{
+    width: 50%;
+    border: solid saddlebrown 1px;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+.container{
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    justify-content: space-between;
+}

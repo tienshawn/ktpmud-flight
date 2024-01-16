@@ -1,0 +1,441 @@
+{% extends 'Flight1/homelayout.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+	{% block head %}	
+	<link rel="stylesheet" href="{% static 'Flight1/css/home.css' %}" >
+	
+<head>
+	
+	
+	
+	<title>Weeboo | Homepage</title>
+
+</head>
+{% endblock head %}
+ {% block body %} 
+<body>
+	<section class="section first-section" style="background:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url('{% static 'Flight1/img/AnyaBG.jpg' %} '  ) no-repeat; background-size:cover;" >
+        <div class="banner-div">
+            <h1 class="banner-text">PLANE TICKET</h1>
+        </div>
+        <div class="search-flight">
+            <form action="{% url 'Flight1:flight' %}" onsubmit="return flight_search()">
+                        <div class="input-row">
+                            <label for="trip-type">Trip Type:</label>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input trip-type" id="one-way" name="TripType" value="1" checked>One-way
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input trip-type" id="round-trip" name="TripType" value="2">Round Trip
+                                </label>
+                            </div>
+                        </div>
+                        <div id="autocompleteContainer">
+                            <label for="flight-from">From: </label><br>
+                            <input type="text" class="search-box" id="from" name="Origin"  placeholder="From" list="autocomplete-options1" oninput="showAutocomplete(1)">
+                            <ul class="autocomplete-list" id="autocompleteList1"></ul>
+                            <datalist id="autocomplete-options1">
+                                    <option value="ATL">	Atlanta	(United States)	</option>
+                                    <option value="PEK">	Beijing	(China)	</option>
+                                    <option value="DXB">	Dubai (United Arab Emirates)	</option>
+                                    <option value="LAX">	Los Angeles	 (United States)	</option>
+                                    <option value="ORD">	Chicago	(United States)	</option>
+                                    <option value="LHR">	London (United Kingdom)	</option>
+                                    <option value="HND">	Tokyo (Japan)	</option>
+                                    <option value="HKG">	Hong Kong (Hong Kong)	</option>
+                                    <option value="PVG">	Shanghai (China)	</option>
+                                    <option value="CDG">	Paris (France)	</option>
+                                    <option value="AMS">	Amsterdam (Netherlands)	</option>
+                                    <option value="DFW">	Dallas (United States)	</option>
+                                    <option value="CAN">	Guangzhou (China)	</option>
+                                    <option value="FRA">	Frankfurt (Germany)	</option>
+                                    <option value="IST">	Istanbul (Turkey)	</option>
+                                    <option value="DEL">	Delhi (India)	</option>
+                                    <option value="CGK">	Jakarta	 (Indonesia)	</option>
+                                    <option value="SIN">	Singapore (Singapore)	</option>
+                                    <option value="ICN">	Seoul (South Korea)	</option>
+                                    <option value="DEN">	Denver	(United States)	</option>
+                                    <option value="BKK">	Bangkok	(Thailand)	</option>
+                                    <option value="JFK">	New York (United States)	</option>
+                                    <option value="KUL">	Kuala Lumpur (Malaysia)	</option>
+                                    <option value="SFO">	San Francisco (United States)	</option>
+                                    <option value="MAD">	Madrid (Spain)	</option>
+                                    <option value="CTU">	Chengdu	(China)	</option>
+                                    <option value="LAS">	Las Vegas (United States)	</option>
+                                    <option value="BCN">	Barcelona (Spain)	</option>
+                                    <option value="BOM">	Mumbai (India)	</option>
+                                    <option value="YYZ">	Toronto	(Canada)	</option>
+                                    <option value="SEA">	Seattle	(United States)	</option>
+                                    <option value="CLT">	Charlotte (United States)	</option>
+                                    <option value="LGW">	London	(United Kingdom)	</option>
+                                    <option value="SZX">	Shenzhen (China)	</option>
+                                    <option value="TPE">	Taipei	(Taiwan)	</option>
+                                    <option value="MEX">	Mexico City	(Mexico)	</option>
+                                    <option value="KMG">	Kunming	(China)	</option>
+                                    <option value="MUC">	Munich	(Germany)	</option>
+                                    <option value="MCO">	Orlando	(United States)	</option>
+                                    <option value="MIA">	Miami	(United States)	</option>
+                                    <option value="PHX">	Phoenix	(United States)	</option>
+                                    <option value="SYD">	Sydney	(Australia)	</option>
+                                    <option value="EWR">	Newark (United States)	</option>
+                                    <option value="MNL">	Manila (Philippines)	</option>
+                                    <option value="SHA">	Shanghai (China)	</option>
+                                    <option value="XIY">	Xi'an (China)	</option>
+                                    <option value="FCO">	Rome (Italy)	</option>
+                                    <option value="IAH">	Houston	 (United States)	</option>
+                                    <option value="NRT">	Tokyo (Japan)	</option>
+                                    <option value="SVO">	Moscow (Russia)	</option>
+                                    <option value="CKG">	Chongqing (China)	</option>
+                                    <option value="DMK">	Bangkok	 (Thailand)	</option>
+                                    <option value="MSP">	Minneapolis (United States)	</option>
+                                    <option value="GRU">	Sao Paulo (Brazil)	</option>
+                                    <option value="BOS">	Boston (United States)	</option>
+                                    <option value="SGN">	Ho Chi Minh City (Vietnam)	</option>
+                                    <option value="DOH">	Doha (Qatar)	</option>
+                                    <option value="HGH">	Hangzhou (China)	</option>
+                                    <option value="DTW">	Detroit (United States)	</option>
+                                    <option value="JED">	Jeddah	(Saudi Arabia)	</option>
+                                    <option value="MEL">	Melbourne (Australia)	</option>
+                                    <option value="FLL">	Fort Lauderdale	(United States)	</option>
+                                    <option value="ORL">	Orlando	 (United States)	</option>
+                                    <option value="SAW">	Istanbul (Turkey)	</option>
+                                    <option value="BOG">	Bogota (Colombia)	</option>
+                                    <option value="DME">	Moscow (Russia)	</option>
+                                    <option value="CJU">	Cheju (South Korea)	</option>
+                                    <option value="LGA">	New York (United States)	</option>
+                                    <option value="PHL">	Philadelphia (United States)	</option>
+                                    <option value="DUB">	Dublin (Ireland)	</option>
+                                    <option value="ZRH">	Zurich (Switzerland)	</option>
+                                    <option value="CPH">	Copenhagen (Denmark)	</option>
+                                    <option value="KIX">	Osaka (Japan)	</option>
+                                    <option value="PMI">	Palma de Mallorca (Spain)	</option>
+                                    <option value="MAN">	Manchester (United Kingdom)	</option>
+                                    <option value="OSL">	Oslo (Norway)	</option>
+                                    <option value="LIS">	Lisbon (Portugal)	</option>
+                                    <option value="ARN">	Stockholm (Sweden)	</option>
+                                    <option value="BWI">	Baltimore (United States)	</option>
+                                    <option value="AYT">	Antalya	 (Turkey)	</option>
+                                    <option value="STN">	London (United Kingdom)	</option>
+                                    <option value="NKG">	Nanjing	(China)	</option>
+                                    <option value="GMP">	Seoul (South Korea)	</option>
+                                    <option value="BLR">	Bangalore (India)	</option>
+                                    <option value="RUH">	Riyadh	(Saudi Arabia)	</option>
+                                    <option value="BRU">	Brussels (Belgium)	</option>
+                                    <option value="DUS">	Duesseldorf	 (Germany)	</option>
+                                    <option value="XMN">	Xiamen	(China)	</option>
+                                    <option value="VIE">	Vienna (Austria)	</option>
+                                    <option value="CGO">	Zhengzhou (China)	</option>
+                                    <option value="SLC">	Salt Lake City	(United States)	</option>
+                                    <option value="YVR">	Vancouver (Canada)	</option>
+                                    <option value="DCA">	Washington (United States)	</option>
+                                    <option value="CSX">	Changcha (China)	</option>
+                                    <option value="AUH">	Abu Dhabi (United Arab Emirates)	</option>
+                                    <option value="CUN">	Cancun (Mexico)	</option>
+                                    <option value="FUK">	Fukuoka	(Japan)	</option>
+                                    <option value="TAO">	Qingdao	 (China)	</option>
+                                    <option value="BNE">	Brisbane (Australia)	</option>
+                                    <option value="WUH">	Wuhan (China)	</option>
+                                    <option value="MAA">	Chennai	(India)	</option>
+                                    <option value="COK">	Kochi (India)	</option>
+                                    <option value="HYD">	Hyderabad (India)	</option>
+                                    <option value="TRV">	Thiruvananthapuram (India)	</option>
+                                    <option value="CCU">	Kolkata	(India)	</option>
+                                    <option value="AMD">	Ahmedabad (India)	</option>
+                                    <option value="CCJ">	Calicut (India)	</option>
+                                    <option value="JAI">	Jaipur (India)	</option>
+                                    <option value="GOI">	Vasco da Gama (India)	</option>
+                                    <option value="LKO">	Lucknow	(India)	</option>
+                                    <option value="CJB">	Coimbatore (India)	</option>
+                                    <option value="TRZ">	Tiruchirappally (India)	</option>
+                                    <option value="PNQ">	Pune (India)</option>
+                                    <option value="IXB">	Siliguri (India)	</option>
+                                    <option value="GAU">	Guwahati (India)	</option>
+                                    <option value="VTZ">	Visakhapatnam (India)</option>
+                                    <option value="ATQ">	Amritsar (India)	</option>
+                                    <option value="IXM">	Madurai (India)	</option>
+                                    <option value="NAG">	Naqpur (India)	</option>
+                                    <option value="IXC">	Chandigarh (India)	</option>
+                                    <option value="IXJ">	Jammu (India)</option>
+                                    <option value="SXR">	Srinagar (India)	</option>
+                                    <option value="IXE">	Mangalore (India)	</option>
+                                    <option value="IXZ">	Port Blair (India)	</option>
+                                    <option value="IDR">	Indore (India)	</option>
+                                    <option value="IXA">	Agartala (India)	</option>
+                                    <option value="PAT">	Patna (India)	</option>
+
+									
+                                <!-- Add more options as needed -->
+                                </datalist>
+
+                            <!-- Autocomplete input box for the second dropdown -->
+                            <label for="flight_to">To: </label><br>
+                            <input type="text" class="search-box" name="Destination" id="autocompleteInput2"  placeholder="To" list="autocomplete-options2" oninput="showAutocomplete(2)">
+                            <ul class="autocomplete-list" id="autocompleteList2"></ul>
+                            <datalist id="autocomplete-options2">
+                                <option value="ATL">	Atlanta	(United States)	</option>
+                                <option value="PEK">	Beijing	(China)	</option>
+                                <option value="DXB">	Dubai (United Arab Emirates)	</option>
+                                <option value="LAX">	Los Angeles	 (United States)	</option>
+                                <option value="ORD">	Chicago	(United States)	</option>
+                                <option value="LHR">	London (United Kingdom)	</option>
+                                <option value="HND">	Tokyo (Japan)	</option>
+                                <option value="HKG">	Hong Kong (Hong Kong)	</option>
+                                <option value="PVG">	Shanghai (China)	</option>
+                                <option value="CDG">	Paris (France)	</option>
+                                <option value="AMS">	Amsterdam (Netherlands)	</option>
+                                <option value="DFW">	Dallas (United States)	</option>
+                                <option value="CAN">	Guangzhou (China)	</option>
+                                <option value="FRA">	Frankfurt (Germany)	</option>
+                                <option value="IST">	Istanbul (Turkey)	</option>
+                                <option value="DEL">	Delhi (India)	</option>
+                                <option value="CGK">	Jakarta	 (Indonesia)	</option>
+                                <option value="SIN">	Singapore (Singapore)	</option>
+                                <option value="ICN">	Seoul (South Korea)	</option>
+                                <option value="DEN">	Denver	(United States)	</option>
+                                <option value="BKK">	Bangkok	(Thailand)	</option>
+                                <option value="JFK">	New York (United States)	</option>
+                                <option value="KUL">	Kuala Lumpur (Malaysia)	</option>
+                                <option value="SFO">	San Francisco (United States)	</option>
+                                <option value="MAD">	Madrid (Spain)	</option>
+                                <option value="CTU">	Chengdu	(China)	</option>
+                                <option value="LAS">	Las Vegas (United States)	</option>
+                                <option value="BCN">	Barcelona (Spain)	</option>
+                                <option value="BOM">	Mumbai (India)	</option>
+                                <option value="YYZ">	Toronto	(Canada)	</option>
+                                <option value="SEA">	Seattle	(United States)	</option>
+                                <option value="CLT">	Charlotte (United States)	</option>
+                                <option value="LGW">	London	(United Kingdom)	</option>
+                                <option value="SZX">	Shenzhen (China)	</option>
+                                <option value="TPE">	Taipei	(Taiwan)	</option>
+                                <option value="MEX">	Mexico City	(Mexico)	</option>
+                                <option value="KMG">	Kunming	(China)	</option>
+                                <option value="MUC">	Munich	(Germany)	</option>
+                                <option value="MCO">	Orlando	(United States)	</option>
+                                <option value="MIA">	Miami	(United States)	</option>
+                                <option value="PHX">	Phoenix	(United States)	</option>
+                                <option value="SYD">	Sydney	(Australia)	</option>
+                                <option value="EWR">	Newark (United States)	</option>
+                                <option value="MNL">	Manila (Philippines)	</option>
+                                <option value="SHA">	Shanghai (China)	</option>
+                                <option value="XIY">	Xi'an (China)	</option>
+                                <option value="FCO">	Rome (Italy)	</option>
+                                <option value="IAH">	Houston	 (United States)	</option>
+                                <option value="NRT">	Tokyo (Japan)	</option>
+                                <option value="SVO">	Moscow (Russia)	</option>
+                                <option value="CKG">	Chongqing (China)	</option>
+                                <option value="DMK">	Bangkok	 (Thailand)	</option>
+                                <option value="MSP">	Minneapolis (United States)	</option>
+                                <option value="GRU">	Sao Paulo (Brazil)	</option>
+                                <option value="BOS">	Boston (United States)	</option>
+                                <option value="SGN">	Ho Chi Minh City (Vietnam)	</option>
+                                <option value="DOH">	Doha (Qatar)	</option>
+                                <option value="HGH">	Hangzhou (China)	</option>
+                                <option value="DTW">	Detroit (United States)	</option>
+                                <option value="JED">	Jeddah	(Saudi Arabia)	</option>
+                                <option value="MEL">	Melbourne (Australia)	</option>
+                                <option value="FLL">	Fort Lauderdale	(United States)	</option>
+                                <option value="ORL">	Orlando	 (United States)	</option>
+                                <option value="SAW">	Istanbul (Turkey)	</option>
+                                <option value="BOG">	Bogota (Colombia)	</option>
+                                <option value="DME">	Moscow (Russia)	</option>
+                                <option value="CJU">	Cheju (South Korea)	</option>
+                                <option value="LGA">	New York (United States)	</option>
+                                <option value="PHL">	Philadelphia (United States)	</option>
+                                <option value="DUB">	Dublin (Ireland)	</option>
+                                <option value="ZRH">	Zurich (Switzerland)	</option>
+                                <option value="CPH">	Copenhagen (Denmark)	</option>
+                                <option value="KIX">	Osaka (Japan)	</option>
+                                <option value="PMI">	Palma de Mallorca (Spain)	</option>
+                                <option value="MAN">	Manchester (United Kingdom)	</option>
+                                <option value="OSL">	Oslo (Norway)	</option>
+                                <option value="LIS">	Lisbon (Portugal)	</option>
+                                <option value="ARN">	Stockholm (Sweden)	</option>
+                                <option value="BWI">	Baltimore (United States)	</option>
+                                <option value="AYT">	Antalya	 (Turkey)	</option>
+                                <option value="STN">	London (United Kingdom)	</option>
+                                <option value="NKG">	Nanjing	(China)	</option>
+                                <option value="GMP">	Seoul (South Korea)	</option>
+                                <option value="BLR">	Bangalore (India)	</option>
+                                <option value="RUH">	Riyadh	(Saudi Arabia)	</option>
+                                <option value="BRU">	Brussels (Belgium)	</option>
+                                <option value="DUS">	Duesseldorf	 (Germany)	</option>
+                                <option value="XMN">	Xiamen	(China)	</option>
+                                <option value="VIE">	Vienna (Austria)	</option>
+                                <option value="CGO">	Zhengzhou (China)	</option>
+                                <option value="SLC">	Salt Lake City	(United States)	</option>
+                                <option value="YVR">	Vancouver (Canada)	</option>
+                                <option value="DCA">	Washington (United States)	</option>
+                                <option value="CSX">	Changcha (China)	</option>
+                                <option value="AUH">	Abu Dhabi (United Arab Emirates)	</option>
+                                <option value="CUN">	Cancun (Mexico)	</option>
+                                <option value="FUK">	Fukuoka	(Japan)	</option>
+                                <option value="TAO">	Qingdao	 (China)	</option>
+                                <option value="BNE">	Brisbane (Australia)	</option>
+                                <option value="WUH">	Wuhan (China)	</option>
+                                <option value="MAA">	Chennai	(India)	</option>
+                                <option value="COK">	Kochi (India)	</option>
+                                <option value="HYD">	Hyderabad (India)	</option>
+                                <option value="TRV">	Thiruvananthapuram (India)	</option>
+                                <option value="CCU">	Kolkata	(India)	</option>
+                                <option value="AMD">	Ahmedabad (India)	</option>
+                                <option value="CCJ">	Calicut (India)	</option>
+                                <option value="JAI">	Jaipur (India)	</option>
+                                <option value="GOI">	Vasco da Gama (India)	</option>
+                                <option value="LKO">	Lucknow	(India)	</option>
+                                <option value="CJB">	Coimbatore (India)	</option>
+                                <option value="TRZ">	Tiruchirappally (India)	</option>
+                                <option value="PNQ">	Pune (India)</option>
+                                <option value="IXB">	Siliguri (India)	</option>
+                                <option value="GAU">	Guwahati (India)	</option>
+                                <option value="VTZ">	Visakhapatnam (India)</option>
+                                <option value="ATQ">	Amritsar (India)	</option>
+                                <option value="IXM">	Madurai (India)	</option>
+                                <option value="NAG">	Naqpur (India)	</option>
+                                <option value="IXC">	Chandigarh (India)	</option>
+                                <option value="IXJ">	Jammu (India)</option>
+                                <option value="SXR">	Srinagar (India)	</option>
+                                <option value="IXE">	Mangalore (India)	</option>
+                                <option value="IXZ">	Port Blair (India)	</option>
+                                <option value="IDR">	Indore (India)	</option>
+                                <option value="IXA">	Agartala (India)	</option>
+                                <option value="PAT">	Patna (India)	</option>
+
+                            </datalist>
+                        </div>
+                <div class="input-row">
+                            <label for="depart_date">Departure Date: </label>
+                            <input type="date" name="DepartDate" min="{{min_date}}" max="{{max_date}}" id="depart_date" placeholder="Date" class="form-control mr-sm-2" value="{{depart_date}}" required>
+                </div>
+                <div class="input-row" id="return-date-row" style="display: none;">
+                            <label for="depart_date">Return Date: </label>
+                            <input type="date" name="ReturnDate" min="{{min_date}}" max="{{max_date}}" id="return_date" placeholder="Date" class="form-control mr-sm-2" value="{{return_date}}" required>
+                </div>
+                        <div class="input-row">
+                            <label for="seat_class">Class: </label>
+                            <select name="SeatClass" id="SeatType" class="form-control mr-sm-2 selectpicker">
+                                <option value="economy" {% if seat == 'economy' %}selected{% endif %}>Economy</option>
+                                <option value="business" {% if seat == 'business' %}selected{% endif %}>Business</option>
+                                <option value="first" {% if seat == 'first' %}selected{% endif %}>First</option>
+                            </select>
+                        </div>
+                        <div class="input-row" style="display: flex">
+                            <button type="submit" class="btn btn-danger">Search Flight</button>
+                        </div>
+                    </div>
+            </form>
+        </div>
+    </section>
+<section class="section second-section">
+        <div class="container">
+            <div class="row justify-content-center" style="margin: 20px 0 10px 0">
+                <div class="col-lg-6">
+                    <div class="section_title text-center mb_70">
+                        <h2>Popular Destination</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row popular_destinations">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_destination" onclick="window.location.href = 'https://en.wikipedia.org/wiki/Tourism_in_Italy'">
+                        <div class="thumb">
+                            <img src="{% static 'Flight1/img/italy.png' %}" alt=""  >
+                        </div>
+                        <div class="content">
+                            <a href="#" ">Italy</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_destination" onclick="window.location.href = 'https://en.wikipedia.org/wiki/Tourism_in_Brazil'">
+                        <div class="thumb">
+                            <img src="{% static 'Flight1/img/brazil.png' %}" alt="">
+                        </div>
+                        <div class="content">
+                            <a href="#">Brazil</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_destination" onclick="window.location.href = 'https://en.wikipedia.org/wiki/Tourism_in_the_United_States'">
+                        <div class="thumb">
+                            <img src="{% static 'Flight1/img/usa.png' %}" alt="">
+                        </div>
+                        <div class="content">
+                            <a href="#">America</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_destination" onclick="window.location.href = 'https://en.wikipedia.org/wiki/Tourism_in_Nepal'">
+                        <div class="thumb">
+                            <img src="{% static 'Flight1/img/nepal.png' %}" alt="">
+                        </div>
+                        <div class="content">
+                            <a href="#">Nepal</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_destination" onclick="window.location.href = 'https://en.wikipedia.org/wiki/Tourism_in_the_Maldives'">
+                        <div class="thumb">
+                            <img src="{% static 'Flight1/img/maldives.png' %}" alt="">
+                        </div>
+                        <div class="content">
+                            <a href="#">Maldives</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_destination" onclick="window.location.href = 'https://en.wikipedia.org/wiki/Tourism_in_Indonesia'">
+                        <div class="thumb">
+                            <img src="{% static 'Flight1/img/indo.png' %}" alt="">
+                        </div>
+                        <div class="content">
+                            <a href="#">Indonesia</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="{% static 'Flight1/static/js/index.js' %}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var roundTripRadio = document.getElementById('round-trip');
+        var returnDateRow = document.getElementById('return-date-row');
+        var returnDateInput = document.getElementById('return_date');
+
+        // Function: Update return date visibility and disabled state based on the selected trip type
+        function updateReturnDateState() {
+            if (roundTripRadio.checked) {
+                returnDateRow.style.display = '';
+                returnDateInput.disabled = false;
+            } else {
+                returnDateRow.style.display = 'none';
+                returnDateInput.disabled = true;
+            }
+        }
+
+        // Initial state check
+        updateReturnDateState();
+
+        // Add click event listener to the radio buttons
+        var tripTypeRadios = document.querySelectorAll('.trip-type');
+        tripTypeRadios.forEach(function (radio) {
+            radio.addEventListener('click', function () {
+                updateReturnDateState();
+            });
+        });
+
+    });
+</script>
+
+</body>
+</html>
+{% endblock %}
