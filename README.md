@@ -1,6 +1,6 @@
 # Applied Software Technique Project
 Our Flight project for the 2023.1 semester. 
-Written in Python (Django), HTML/CSS, JavaScript
+Written in Python (Django), HTML/CSS, JavaScript.
 
 ## Installation
 Please install [Django](https://www.djangoproject.com/) to the latest version, and its dependency through the offical website.
