@@ -10,7 +10,6 @@ To run the project, run the command below in Terminal (for Linux) or Powershell/
 ```bash
 py manage.py runserver
 ```
-
 If you wish to create a superuser (user with administrative right), run the command
 ```bash
 py manange.py createsuperuser
