@@ -1,0 +1,173 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI",sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url("https://wallpapercave.com/dwp2x/wp8555881.jpg");
+}
+.wrapper{
+    width: 500px;
+    background-color:transparent ;
+    color: black;
+    border-radius: 10px;
+    padding: 30px 40px 30px 40px;
+    border: 1px solid white;
+}
+.wrapper .name{
+    display: flex;
+    margin-bottom: 20px;
+}
+.wrapper .name input:last-child {
+    margin-right: 0;
+}
+.wrapper .name input{
+    width: 50%;
+    height: 40px;
+    border-radius: 10px;
+    border: 2px solid lightblue;
+    padding: 0 0 0 10px;
+    font-size: 15px;
+    margin-right: 5px;
+}
+
+h1 {
+    font-size: 50px;
+    text-align: center;
+}
+h2 {
+    font-size: 50px;
+    text-align: center;
+}
+.input-box input {
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: 2px solid lightblue;
+    padding: 0 0 0 10px;
+    font-size: 15px;
+}
+.wrapper .remember-forgot{
+    display:flex;
+    font-size: 14px;
+    justify-content: space-between;
+    margin: 15px 0 15px 0;
+}
+.remember-forgot label input {
+    margin-right: 4px;
+    accent-color: lightcoral;
+}
+a {
+    color: black;
+    text-decoration: unset;
+    font-weight: 500;
+}
+a:hover{
+    color: coral;
+    text-decoration: underline;
+}
+.wrapper .btn{
+    width: 100%;
+    height: 30px;
+    border-radius: 10px;
+    background-color: coral;
+    border:none;
+    outline: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.wrapper .register-links {
+    text-align: center;
+    margin-top: 20px;
+}
+.wrapper .login-links{
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+
+footer{
+    background-color: rgb(255,242,242);
+    margin-top: 0px;
+    padding-top: 1px;
+}
+footer .container > div{
+    font-family: "Segoe UI", sans-serif;
+    margin: 48px 0px 10px;
+    flex-shrink: 0;
+    max-width: 100%;
+    overflow: hidden;
+}
+.footer-content{
+    padding-top: 20px;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+.links-container{
+    text-align: left;
+    flex-direction: row;
+    display: flex;
+}
+.quote-container{
+    text-align: right;
+}
+.logo-container img{
+    width: 130px;
+}
+.links-container > div{
+    flex: 1 0 0px;
+}
+.links-container > div ul{
+    padding-inline-start: 0px;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    list-style-type: none;
+    margin-right: 50px;
+}
+.footer-links{
+    white-space: nowrap;
+    color: rgb(31, 31, 31);
+    text-decoration: underline solid rgb(255, 255, 255);
+    transition: all 0.1s ease 0s;
+}
+.footer-links:hover{
+    color: rgb(31, 31, 31);
+}
+.quote-container .quote{
+    font-family: "Segoe UI", serif;
+    text-align: center;
+    color: rgb(26, 26, 26);
+    max-width: 500px;
+    margin: auto;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.6;
+}
+.quote-container .quote-by{
+    font-family: "Segoe UI",sans-serif;
+    font-size: 15px;
+}
+.social-icons{
+    list-style-type: none;
+    display: flex;
+    margin: 0px auto;
+    padding: 20px 0px;
+    width: 100%;
+    max-width: 200px;
+    justify-content: space-evenly;
+}
+.social-icons a{
+    height: 44px;
+    width: 44px;
+}

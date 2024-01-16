@@ -1,0 +1,36 @@
+{% extends 'Flight1/layout2.html' %}
+{% load static %}
+
+    {% block title %}
+    Weeboo | Login
+    {% endblock title %}
+    
+</head>
+{% block body %}
+<body>
+    <div class="wrapper">
+        <form action="" method="post">
+            {% csrf_token %} 
+            <h1> Login <i class='bx bxs-plane-alt'></i>  </h1>
+            <div class="input-box">
+                <i class='bx bxs-user'> </i> Username
+                <input type="text" name="tendangnhap" placeholder="Username *" autocomplete="off" required>
+            </div>
+            
+            <div class="input-box">
+                <i class='bx bxs-lock-alt'></i> Password
+                
+                <input type="password" name="matkhau" placeholder="Password *" autocomplete="off" required>
+            </div>
+            
+            <div ><small>{{message}}</small></div>
+            
+            <br>
+            <button class="btn">Login</button>
+            <div class="register-links">
+                <p style=" font-weight: bold;" >Don't have an account ? <a style="font-weight: bold;" href="{% url 'Flight1:register' %}" >Sign up</a></>
+            </div>
+        </form>
+    </div>
+</body>
+{% endblock body %}
